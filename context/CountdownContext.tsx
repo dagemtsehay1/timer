@@ -13,12 +13,14 @@ interface CountdownProviderProps {
 }
 
 export function CountdownProvider({ children }: CountdownProviderProps) {
-  const [countdown, setCountdown] = useState<number>(60); // Initial countdown time in seconds
+  const session = localStorage.getItem("timer") == null ? "0" : localStorage.getItem("timer");
+  const [countdown, setCountdown] = useState<number>(session == "0" ? 60 : parseInt(`${session}`));
 
   const decrease = () =>{
     if(countdown !=0){
       setTimeout(() => {
         setCountdown(countdown - 1);
+        localStorage.setItem("timer",`${countdown -1}` );
       }, 1000);
 
     }

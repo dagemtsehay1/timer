@@ -10,7 +10,7 @@ function Page2() {
     <div>
       <h1>Page 2</h1>
       <p>Countdown: {countdown} seconds</p>
-      <Link href="/">Page 1</Link>
+      <Link href="/" className='text-blue-500 font-bold'>Page 1</Link>
     </div>
   );
 }
